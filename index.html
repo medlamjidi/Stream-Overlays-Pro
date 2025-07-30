@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StreamPro Overlays - Premium Stream Designs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #8b5cf6;
+            --primary-dark: #7c3aed;
+            --secondary: #10b981;
+            --dark-bg: #0f172a;
+            --darker-bg: #0a0f1f;
+            --card-bg: #1e293b;
+            --text-light: #f1f5f9;
+            --text-gray: #94a3b8;
+            --border: #334155;
+            --twitch: #9146ff;
+            --youtube: #ff0000;
+            --facebook: #1877f2;
+            --kick: #53fc19;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--darker-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: rgba(15, 23, 42, 0.95);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo i {
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxjaXJjbGUgY3g9IjIwIiBjeT0iMjAiIHI9IjAuNSIgZmlsbD0iI2ZmZiIgZmlsbC1vcGFjaXR5PSIwLjEiLz48L2Npcg0KcmN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjcGF0dGVybikiLz48L3N2Zz4=');
+            opacity: 0.1;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        .platform-highlight {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-weight: 700;
+            margin: 0 5px;
+            transition: all 0.5s ease;
+        }
+        
+        .twitch { background: var(--twitch); }
+        .youtube { background: var(--youtube); }
+        .facebook { background: var(--facebook); }
+        .kick { background: var(--kick); color: #000; }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: rgba(255,255,255,0.9);
+        }
+        
+        /* Search Bar */
+        .search-container {
+            max-width: 600px;
+            margin: 30px auto;
+            position: relative;
+        }
+        
+        .search-bar {
+            width: 100%;
+            padding: 15px 20px;
+            border-radius: 30px;
+            border: 2px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.1);
+            color: white;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        
+        .search-bar:focus {
+            border-color: var(--primary);
+        }
+        
+        .search-bar::placeholder {
+            color: rgba(255,255,255,0.6);
+        }
+        
+        .search-btn {
+            position: absolute;
+			right: 5px;
+			background: var(--primary);
+			border: none;
+			color: white;
+			padding: 10px 20px;
+			margin: 9px;
+			border-radius: 30px;
+			cursor: pointer;
+			transition: background 0.3s;
+        }
+		
+		.search-btn:hover {
+            background: var(--primary-dark);
+            box-shadow: 0 10px 25px rgba(139, 92, 246, 0.4);
+        }
+        
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--text-light);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        
+        .section-header p {
+            color: var(--text-gray);
+            max-width: 600px;
+            margin: 20px auto 0;
+        }
+        
+        /* Product Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .product-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+        }
+        
+        .product-image {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--secondary);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .product-price {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .current-price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .compare-price {
+            font-size: 1rem;
+            color: var(--text-gray);
+            text-decoration: line-through;
+        }
+        
+        .discount {
+            background: #ef4444;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .product-features {
+            margin: 15px 0;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .feature-item i {
+            color: var(--secondary);
+        }
+        
+        .product-icons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+        
+        .icon-badge {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            transition: transform 0.2s;
+        }
+        
+        .icon-badge:hover {
+            transform: scale(1.1);
+        }
+        
+        .twitch-icon { color: var(--twitch); }
+        .youtube-icon { color: var(--youtube); }
+        .facebook-icon { color: var(--facebook); }
+        .kick-icon { color: var(--kick); }
+        .obs-icon { color: #333; background: white; }
+        .streamlabs-icon { color: #ff6b6b; }
+        .streamelements-icon { color: #4ecdc4; }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(139, 92, 246, 0.4);
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(139, 92, 246, 0.1);
+        }
+        
+        .center-btn {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .note {
+            text-align: center;
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            margin-top: 15px;
+        }
+        
+        /* Pagination Controls */
+        .pagination-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 40px;
+        }
+
+        .pagination-btn {
+            background: var(--card-bg);
+            color: var(--text-light);
+            border: 1px solid var(--border);
+            padding: 10px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s, border-color 0.3s;
+            font-weight: 600;
+        }
+
+        .pagination-btn:hover:not(:disabled) {
+            background: var(--primary-dark);
+            border-color: var(--primary-dark);
+        }
+
+        .pagination-btn.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+
+        .pagination-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Categories */
+        .categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .category-card {
+            text-align: center;
+            padding: 30px;
+            background: var(--card-bg);
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            width: 180px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        }
+        
+        .category-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            background: var(--dark-bg);
+            position: relative;
+        }
+        
+        .testimonial-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonial-slider {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .testimonial-card {
+            min-width: 100%;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .stars {
+            color: #fbbf24;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .testimonial-nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .nav-btn {
+            background: var(--card-bg);
+            border: none;
+            color: var(--text-light);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .nav-btn:hover {
+            background: var(--primary);
+        }
+        
+        /* Features Section */
+        .features {
+            background: var(--dark-bg);
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .feature-card {
+            text-align: center;
+            padding: 40px 30px;
+            background: var(--card-bg);
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+			transition: transform 0.3s;
+        }
+
+		.feature-card:hover .feature-icon {
+            transform: scale(1.1);
+        }
+        
+        .feature-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            background: var(--dark-bg);
+        }
+        
+        .faq-categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+        
+        .faq-category {
+            padding: 18px 35px;
+            background: var(--card-bg);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .faq-category.active, .faq-category:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(139, 92, 246, 0.3);
+        }
+        
+        .faq-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: var(--card-bg);
+            border-radius: 10px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+        
+        .faq-question:hover {
+            background: rgba(139, 92, 246, 0.1);
+        }
+        
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .faq-answer.open {
+            padding: 0 20px 20px;
+            max-height: 1000px;
+        }
+        
+        .faq-toggle {
+            transition: transform 0.3s;
+        }
+        
+        .faq-toggle.rotated {
+            transform: rotate(180deg);
+        }
+        
+        /* Mission */
+        .mission {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        
+        .mission p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+        
+        /* About & Contact */
+        .about-content, .contact-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-text h3, .contact-text h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .about-text p, .contact-text p {
+            margin-bottom: 20px;
+            color: var(--text-gray);
+        }
+        
+        .contact-form {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: rgba(255,255,255,0.05);
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .modal-content {
+            background: var(--card-bg);
+            border-radius: 15px;
+            width: 100%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 10;
+        }
+        
+        .modal-body {
+            padding: 30px;
+        }
+		
+		/* Modal Image Gallery Styles */
+        .modal-image-gallery {
+            position: relative;
+            width: 100%;
+            height: 350px; /* Adjust height as needed */
+            overflow: hidden;
+            border-radius: 15px 15px 0 0;
+            background-color: var(--dark-bg); /* Fallback */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #modal-main-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Use 'contain' to show full image without cropping */
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .gallery-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            z-index: 10;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .gallery-nav-btn:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .prev-image {
+            left: 10px;
+        }
+
+        .next-image {
+            right: 10px;
+        }
+
+        .modal-thumbnails {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 0 20px;
+        }
+
+        .modal-thumbnail {
+            width: 70px; /* Thumbnail size */
+            height: 50px;
+            object-fit: cover;
+            border-radius: 5px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: border-color 0.3s, transform 0.2s;
+        }
+
+        .modal-thumbnail.active {
+            border-color: var(--primary);
+            transform: scale(1.05);
+        }
+
+        .modal-thumbnail:hover {
+            border-color: var(--secondary);
+        }
+        
+        .modal-main-image {
+            width: 100%;
+            height: 300px;
+            border-radius: 15px 15px 0 0;
+            overflow: hidden;
+        }
+        
+        .modal-main-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .modal-info {
+            padding: 20px;
+        }
+        
+        .modal-title {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+        
+        .modal-description {
+            color: var(--text-gray);
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+        
+        .modal-platforms {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        
+        .modal-platform {
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .modal-software {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        
+        .modal-software span {
+            padding: 5px 15px;
+            border-radius: 20px;
+            background: rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+        }
+        
+        .purchase-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 20px;
+        }
+        
+        .purchase-btn:hover {
+            background: #0da271;
+        }
+        
+        /* Footer */
+		footer {
+            background: var(--dark-bg);
+            padding: 20px 0 20px;
+            border-top: 1px solid var(--border);
+        }
+        
+        
+		.footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .social-icons a {
+            color: var(--text-light);
+            font-size: 1.5rem;
+            transition: color 0.3s, transform 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            color: var(--text-gray);
+            font-size: 1rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .about-content, .contact-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .mission {
+                padding: 30px 20px;
+            }
+            
+            .modal-content {
+                margin: 10px;
+            }
+            
+            .faq-categories {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .faq-category {
+                width: 100%;
+                text-align: center;
+            }
+
+            .pagination-controls {
+                flex-wrap: wrap;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero {
+                padding: 60px 0;
+            }
+            
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+            
+            .platform-highlight {
+                display: block;
+                margin: 10px 0;
+            }
+            
+            .categories {
+                gap: 15px;
+            }
+            
+            .category-card {
+                width: 140px;
+                padding: 20px 15px;
+            }
+            
+            .category-icon {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo"><i class="fas fa-gamepad"></i> Stream Overlays Pro</a>
+                <div class="nav-links">
+                    <a href="#">Home</a>
+                    <a href="#shop">Shop</a>
+                    <a href="#faq">FAQ</a>
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Stream Overlays for <span class="platform-highlight twitch">Twitch</span></h1>
+            <p>Upgrade your stream overlay effortlessly. Get set up in minutes on OBS Studio, Streamlabs and StreamElements for popular platforms like Twitch, Kick and YouTube. It's quick and easy!</p>
+        </div>
+    </section>
+
+    <section id="shop">
+        <div class="container">
+            <div class="section-header">
+                <h2>Best Selling Twitch Overlays</h2>
+                <p>Top picks from our community</p>
+            </div>
+            
+            <div class="search-container">
+                <input type="text" class="search-bar" id="search-input" placeholder="Search overlays, alerts, widgets...">
+                <button class="search-btn" id="search-btn"><i class="fas fa-search"></i> Search</button>
+            </div>
+            
+            <div class="product-grid" id="best-sellers">
+                </div>
+
+            <div class="pagination-controls" id="pagination-controls">
+                </div>
+
+            <div class="center-btn">
+                <a href="#shop" class="btn btn-secondary">View All Stream Overlays and Alerts</a>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <h2>Browse Overlays by Category</h2>
+                <p>Find exactly what you need for your stream</p>
+            </div>
+            <div class="categories">
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-tv"></i>
+                    </div>
+                    <h3>Stream Overlays</h3>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h3>Stream Alerts</h3>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Chat Box Overlays</h3>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-th"></i>
+                    </div>
+                    <h3>All Products</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Streamers Say</h2>
+                <p>Real feedback from our community</p>
+            </div>
+            <div class="testimonial-container">
+                <div class="testimonial-slider" id="testimonial-slider">
+                    </div>
+                <div class="testimonial-nav">
+                    <button class="nav-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+                    <button class="nav-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>What You Get When You Choose Us</h2>
+                <p>We're dedicated to helping you create professional streams</p>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3 class="feature-title">Professional Design</h3>
+                    <p>With over a decade of expertise, we specialize in crafting high-quality, engaging overlays tailored to streamers and creators of every level and audience size.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-sliders-h"></i>
+                    </div>
+                    <h3 class="feature-title">Unmatched Customization</h3>
+                    <p>From modular layouts to versatile customization options, our overlays empower you to create a stream design that's uniquely your own.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="feature-title">Easy Setup</h3>
+                    <p>Whether you're just starting or a seasoned streamer, install your overlays and widgets in just a few clicks. Fully compatible with OBS Studio and other top streaming platforms.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Everything you need to know about our products and services</p>
+            </div>
+            
+            <div class="faq-categories">
+                <div class="faq-category active" data-category="payment">Payment</div>
+                <div class="faq-category" data-category="delivery">Delivery</div>
+                <div class="faq-category" data-category="howto">How To</div>
+                <div class="faq-category" data-category="customs">Customs</div>
+                <div class="faq-category" data-category="license">License</div>
+            </div>
+            
+            <div class="faq-content" id="faq-content">
+                </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>About StreamPro</h2>
+                <p>Learn more about our mission and values</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Our Story</h3>
+                    <p>Founded in 2018 by passionate streamers and designers, StreamPro was created to solve a common problem: finding high-quality, affordable stream overlays that actually work.</p>
+                    <p>We've grown from a small team of 3 to a community of over 50,000 streamers who trust us to elevate their content.</p>
+                    <h3>Our Values</h3>
+                    <p><strong>Innovation:</strong> We're constantly pushing the boundaries of what's possible in stream design.</p>
+                    <p><strong>Community:</strong> Your success is our success. We listen, we adapt, we grow together.</p>
+                    <p><strong>Quality:</strong> Every product is meticulously crafted and tested before release.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://placehold.co/500x400/8b5cf6/white?text=Our+Team" alt="StreamPro Team" style="width:100%; border-radius:15px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="mission">
+                <h2>Our Mission</h2>
+                <p>We work hard to elevate content creators and streamers by enhancing their production value. Each overlay, alert, widget, and template is meticulously designed to work seamlessly across Twitch, YouTube, Kick, and Facebook.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Contact Us</h2>
+                <p>Get in touch with our support team</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-text">
+                    <h3>Get Support</h3>
+                    <p>Have questions about our products or need help with setup? Our expert support team is here to help.</p>
+                    <p><i class="fas fa-envelope"></i> support@streampro.com</p>
+                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                    <p><i class="fas fa-clock"></i> Monday-Friday: 9AM-6PM EST</p>
+                    
+                    <h3 style="margin-top: 30px;">Business Inquiries</h3>
+                    <p>For partnership opportunities, bulk licensing, or custom designs:</p>
+                    <p><i class="fas fa-envelope"></i> partners@streampro.com</p>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+			<div class="copyright">
+                <p>&copy; 2025 StreamPro Overlays. All rights reserved.</p>
+            </div>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-discord"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitch"></i></a>
+                </div>
+            </div>
+            
+        </div>
+    </footer>
+
+    <div class="modal" id="product-modal">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <div class="modal-body">
+                <div class="modal-image-gallery">
+                    <img id="modal-main-image" src="" alt="Product Image">
+                    <button class="gallery-nav-btn prev-image"><i class="fas fa-chevron-left"></i></button>
+                    <button class="gallery-nav-btn next-image"><i class="fas fa-chevron-right"></i></button>
+                    <div class="modal-thumbnails" id="modal-thumbnails">
+                        </div>
+                </div>
+                <div class="modal-info">
+                    <h2 class="modal-title" id="modal-title"></h2>
+                    <div class="product-price">
+                        <span class="current-price" id="modal-price"></span>
+                        <span class="compare-price" id="modal-compare-price"></span>
+                        <span class="discount" id="modal-discount"></span>
+                    </div>
+                    <p class="modal-description" id="modal-description"></p>
+                    
+                    <div class="modal-platforms" id="modal-platforms">
+                        </div>
+                    
+                    <div class="modal-software" id="modal-software">
+                        </div>
+                    
+                    <div class="product-features">
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Instant Download</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Expert Customer Service</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Free Updates</span>
+                        </div>
+                    </div>
+                    
+                    <button class="purchase-btn" id="purchase-btn">Purchase Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="productsData.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
