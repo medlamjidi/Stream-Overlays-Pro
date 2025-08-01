@@ -3,20 +3,20 @@ const products = [
     {
         id: "overlay1",
         title: "Neon Pulse Overlay Pack",
-        price: 14.00,
-        comparePrice: 24.00,
+        price: 9.99,
+        comparePrice: 16.00,
         images: [
-            "https://images-cdn.own3d.tv/files/2022/07/blackwhite-twitch-stream-overlay-pack-overview.jpg",
-            "https://images-cdn.own3d.tv/files/2022/07/blackwhite-twitch-stream-overlay-pack-overview.jpg",
-            "https://placehold.co/600x400/ec4899/white?text=Preview"
+            "https://public-files.gumroad.com/rhvs93padzn48bkkj8127ivyecgb",
+            "https://public-files.gumroad.com/cki4i0a02glmkbp8owgx233x1sdl",
+            "https://public-files.gumroad.com/rsnemtt7rsxfq9sjyxin5o4m0lb5"
         ],
         description: "The Neon Pulse Overlay Pack brings an electrifying aesthetic to your stream, complete with dynamic alerts, animated scenes, and modular layout options. Perfect for tech streamers and gamers who want to stand out.",
         platforms: ["Twitch", "Kick", "YouTube", "Facebook"],
         software: ["OBS", "Streamlabs", "StreamElements"],
         category: "Stream Overlays",
         bestSeller: true,
-        dateAdded: "2025-07-01",
-        purchaseLink: "https://example.com/purchase/overlay1"
+        dateAdded: "2025-08-01",
+        purchaseLink: "https://streamoverlayspro.gumroad.com/l/neon-core-overlay?wanted=true"
     },
     {
         id: "overlay2",
