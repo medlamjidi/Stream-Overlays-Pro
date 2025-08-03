@@ -234,23 +234,23 @@ const faqData = {
         },
         {
             question: "How to upload Twitch emotes?",
-            answer: "Here is our guide for uploading emotes to Twitch."
+			answer: "To upload emotes on Twitch, go to your Creator Dashboard > Viewer Rewards > Emotes. Click 'Upload Emote' and choose the image file. Twitch will auto-generate different sizes. Make sure your emote follows Twitch's guidelines. Once approved, your emote will be live for your subscribers!"
         },
         {
             question: "How to upload Twitch badges?",
-            answer: "Here is our guide on uploading badges to Twitch."
+			answer: "To upload subscriber badges on Twitch, go to your Creator Dashboard > Viewer Rewards > Subscriptions > Loyalty Badges. Click 'Edit' to upload your badge images (you’ll need 3 sizes: 18x18, 36x36, and 72x72 pixels). Save your changes, and Twitch will review and display them once approved!"
         },
         {
             question: "How to upload Twitch panels?",
-            answer: "Here is Twitch's guide on uploading panels."
+			answer: "Go to your Twitch channel page, scroll down, and toggle on 'Edit Panels'. Click the '+' to add a new panel. Choose a panel type, give it a title, and upload your image (usually 320x100 pixels). You can also add a link and description. When you're done, toggle 'Edit Panels' off to save."
         },
         {
             question: "How to resize emotes and badges?",
-            answer: "You can use our free resize tool to resize emotes to badge size and vice-versa."
+			answer: "You can easily resize emotes and badges using the free tool at ezgif.com/resize. Just upload your image, set the size you want (like 18x18, 36x36, or 72x72 pixels), and download the resized file. It’s simple and quick!"
         },
         {
             question: "How do I setup/import a Twitch overlay?",
-            answer: "How to Import Twitch overlay in OBS. How to Import Twitch overlay in StreamLabs."
+			answer: "Since your overlay pack already includes a .json file for OBS and a .overlay file for Streamlabs, setting it up is easy! Just open your streaming software and use the import option to load the overlay file included in your download. For OBS, go to 'Scene Collection' > 'Import' and select the .json file. For Streamlabs, go to 'Scenes', click the gear icon, then 'Import Overlay' and choose the .overlay file. After importing, you can adjust the elements to fit your stream perfectly. Ready to go live!"
         },
         {
             question: "How to change the color of my overlay in OBS / OBS Studio?",
@@ -265,10 +265,6 @@ const faqData = {
         {
             question: "Custom Designs",
 			answer: "We’d love to bring your custom overlay vision to life! To request a custom design, please email us at <strong>support@streamoverlayspro.com</strong>.<br><br>To help us understand your request, include the following in your email:<ul><li>🎮 Your stream platform (Twitch, Kick, YouTube, etc.)</li><li>🎨 Preferred style or theme (e.g. neon, minimalist)</li><li>🖌️ Colors you like (or want to avoid)</li><li>📦 What you need (full package, alerts, webcam frame, etc.)</li><li>🔧 Inspiration links or references (if any)</li><li>📅 Deadline, if applicable</li></ul>We receive many requests and only take on a few at a time. The more details you share, the better!"
-        },
-        {
-            question: "Not finding something you like?",
-            answer: "You can request new designs or upvote existing ideas on our suggestions page. To make a suggestion scroll down to the bottom of the suggestions page and click the + sign to submit a new idea. Note: If it asks for an email you can just click the skip button."
         }
     ],
     license: [
