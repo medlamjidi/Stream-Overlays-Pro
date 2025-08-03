@@ -202,7 +202,7 @@ const faqData = {
         },
         {
             question: "Will I get a receipt for my purchase?",
-            answer: "Yes, upon purchasing your graphics, you will receive an email with a detailed receipt of your purchase. If you are not seeing the email it may be in your spam folder. To ensure that you continue to receive our emails, we kindly request that you mark our emails as 'Not Spam'. If you for some reason do not receive this email, feel free to email us at contact@gamingvisuals.com"
+            answer: "Yes, upon purchasing your graphics, you will receive an email with a detailed receipt of your purchase. If you are not seeing the email it may be in your spam folder. To ensure that you continue to receive our emails, we kindly request that you mark our emails as 'Not Spam'. If you for some reason do not receive this email, feel free to email us at support@streamoverlayspro.com"
         },
         {
             question: "What currency will I be charged in?",
