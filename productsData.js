@@ -206,7 +206,7 @@ const faqData = {
         },
         {
             question: "What currency will I be charged in?",
-            answer: "You will be charged in USD, EUR or GBP, depending on your location. There is a currency switcher in the top right in website header, from which you can change the currency of the website."
+            answer: "You will be charged in your local currency—USD, EUR, or GBP—based on your country. Prices may appear in USD, but at checkout, you’ll be redirected to Gumroad, where you’ll be charged in your country’s currency."
         },
         {
             question: "Having trouble checking out?",
@@ -220,7 +220,7 @@ const faqData = {
     delivery: [
         {
             question: "How Will My Order Be Delivered?",
-            answer: "Products become available to download immediately after purchase by clicking the red download button(s). The links are also sent to the email address that was used during checkout. If you don't see the email it might be in your spam folder. To ensure that you continue to receive our emails, we kindly request that you mark our emails as 'Not Spam'. Customized logos will be sent to your email in 1-3 business days after your order is placed."
+            answer: "Products become available to download immediately after purchase by clicking the download button(s). The links are also sent to the email address that was used during checkout. If you don't see the email it might be in your spam folder. To ensure that you continue to receive our emails, we kindly request that you mark our emails as 'Not Spam'. Customized logos will be sent to your email in 1-3 business days after your order is placed."
         },
         {
             question: "I'm Having Problems With My Delivery",
@@ -264,7 +264,7 @@ const faqData = {
         },
         {
             question: "Custom Designs",
-            answer: "You can check out more information about our custom designs here. There is a form at the bottom of the page to for custom designs. Please note we get hundreds of requests and can only take on a few projects at a time. We recommend being as detailed as possible when filling out the form to increase your odds of being selected."
+			answer: "We’d love to bring your custom overlay vision to life! To request a custom design, please email us at <strong>support@streamoverlayspro.com</strong>.<br><br>To help us understand your request, include the following in your email:<ul><li>🎮 Your stream platform (Twitch, Kick, YouTube, etc.)</li><li>🎨 Preferred style or theme (e.g. neon, minimalist)</li><li>🖌️ Colors you like (or want to avoid)</li><li>📦 What you need (full package, alerts, webcam frame, etc.)</li><li>🔧 Inspiration links or references (if any)</li><li>📅 Deadline, if applicable</li></ul>We receive many requests and only take on a few at a time. The more details you share, the better!"
         },
         {
             question: "Not finding something you like?",
@@ -274,7 +274,7 @@ const faqData = {
     license: [
         {
             question: "What kind of license do I get with my purchase?",
-            answer: "All our products come with a personal license, which means you can use them on all your streaming, content creation or social media channels, but you cannot redistribute, modify, resell or manipulate the products. Our paid customizable logos may be utilized by the YouTuber/streamer that purchased the design for merchandise creation for their channel/community, with no alterations permitted to the original design."
+            answer: "All our products come with a personal license, which means you can use them on all your streaming, content creation or social media channels, but you cannot redistribute, modify, resell or manipulate the products. Our paid customizable logos may be utilized by the YouTuber/Streamer that purchased the design for merchandise creation for their channel/community, with no alterations permitted to the original design."
         }
     ]
 };
