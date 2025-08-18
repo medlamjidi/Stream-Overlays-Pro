@@ -20,21 +20,21 @@ const products = [
     },
     {
         id: "overlay2",
-        title: "Minimalist Studio Pack",
-        price: 18.00,
-        comparePrice: 28.00,
+        title: "Futuristic Metal Stream Overlay Pack",
+        price: 8.99,
+        comparePrice: 14.00,
         images: [
-            "https://placehold.co/600x400/10b981/white?text=Minimalist+1",
-            "https://placehold.co/600x400/059669/white?text=Minimalist+2",
-            "https://placehold.co/600x400/34d399/white?text=Preview"
+            "https://public-files.gumroad.com/yq10prcxrtz7qvkdbfo1jp6jazwq",
+            "https://public-files.gumroad.com/5z7s8yip57hzdsq2kaxd6a5y3nvu",
+            "https://public-files.gumroad.com/lsfpkxtqcdd7alntkd48yvfez1bk"
         ],
-        description: "Clean, professional overlays designed for creators who want to focus on content without distractions. Features elegant typography and subtle animations.",
-        platforms: ["Twitch", "YouTube"],
-        software: ["OBS", "Streamlabs"],
+        description: "The Neon Pulse Overlay Pack brings an electrifying aesthetic to your stream, complete with dynamic alerts, animated scenes, and modular layout options. Perfect for tech streamers and gamers who want to stand out.",
+        platforms: ["Twitch", "Kick", "YouTube", "Facebook"],
+        software: ["OBS", "Streamlabs", "StreamElements"],
         category: "Stream Overlays",
         bestSeller: true,
-        dateAdded: "2025-06-28",
-        purchaseLink: "https://example.com/purchase/overlay2"
+        dateAdded: "2025-08-18",
+        purchaseLink: "https://streamoverlayspro.gumroad.com/l/Futuristic-Metal-Stream-Overlay?wanted=true"
     },
     {
         id: "overlay3",
